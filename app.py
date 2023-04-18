@@ -19,6 +19,7 @@ class Pabellon(db.Model):
 class Guardia(db.Model):
     id_guardia = db.Column (db.Integer, primary_key=True)
     nombre_guardia = db.Column (db.String (50), nullable=False)
+    id_pabellon = db.Column (db.Integer, db.ForeignKey('pabellon.id_pabellon'))
     # id_espacio_asignado = db.Column (db.Integer, db.ForeignKey('espacioasignado.id_espacio_asignado'))
 
 class Espacios(db.Model):
@@ -55,7 +56,6 @@ def convertir_a_epoch (fecha_str, hora_str):
     return epoch
 
 
-
 def convertir_a_epoch(fecha_str, hora_str ): 
     # Convertir fecha y hora a objetos datetime
     fecha_hora_str = fecha_str + ' ' + hora_str
@@ -83,8 +83,10 @@ def agregar_datos_guardias():
     if request.method == "POST":
         diccionario= request.form
         nombre_guardia = diccionario ["nombre_guardia"]
+        id_pabellon = diccionario ["id_pabellon"]
+
         # id_espacio_asignado = diccionario ["id_espacio_asignado"]
-        datos_a_agregar = Guardia(nombre_guardia=nombre_guardia)
+        datos_a_agregar = Guardia(nombre_guardia=nombre_guardia, id_pabellon=id_pabellon)
         db.session.add(datos_a_agregar)
         db.session.commit()
     return (render_template("formularioguardias.html"))
@@ -92,6 +94,7 @@ def agregar_datos_guardias():
 @app.route("/pabelloninput", methods = ["GET", "POST"])
 def agregar_datos_pabellon():
     if request.method == "POST":
+        print('aaaaaaaaaaaaaaaaaaaaaa')
         diccionario = request.form
         nombre_pabellon = diccionario ["nombre_pabellon"]
         datos_a_agregar = Pabellon(nombre_pabellon=nombre_pabellon)
@@ -130,15 +133,18 @@ def agregar_datos_ppl():
         db.session.commit()
     return(render_template("formularioppl.html"))
        
-@app.route("/pruebaquery")
-def pruebaquery():
-    all_guardias = Guardia.query.all()
-    print (all_guardias)
-    return all_guardias
+# @app.route("/pruebaquery")
+# def pruebaquery():
+#     # Hacer una peticion para obtener todos los datos de la base de datos 
+#     all_guardias = Guardia.query.all()
+    
+#     # for guardia in all_guardias:
+#     #     print(guardia.nombre_guardia)s
+
+#     return render_template('prueba_visualizacion.html', lista_guardias=all_guardias)
 
 @app.route("/test_visualizacion")
 def test_visualizacion():
-    
     return render_template('test_visualizacion.html')
 
 #Esto para que podamos correr
