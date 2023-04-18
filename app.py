@@ -19,6 +19,7 @@ class Pabellon(db.Model):
 class Guardia(db.Model):
     id_guardia = db.Column (db.Integer, primary_key=True)
     nombre_guardia = db.Column (db.String (50), nullable=False)
+    id_pabellon = db.Column (db.Integer, db.ForeignKey('pabellon.id_pabellon'))
     # id_espacio_asignado = db.Column (db.Integer, db.ForeignKey('espacioasignado.id_espacio_asignado'))
 
 class Espacios(db.Model):
@@ -132,13 +133,16 @@ def agregar_datos_ppl():
        
 @app.route("/pruebaquery")
 def pruebaquery():
+    # Hacer una peticion para obtener todos los datos de la base de datos 
     all_guardias = Guardia.query.all()
-    print (all_guardias)
-    return all_guardias
+    
+    # for guardia in all_guardias:
+    #     print(guardia.nombre_guardia)
+
+    return render_template('prueba_visualizacion.html', lista_guardias=all_guardias)
 
 @app.route("/test_visualizacion")
 def test_visualizacion():
-    
     return render_template('test_visualizacion.html')
 
 #Esto para que podamos correr

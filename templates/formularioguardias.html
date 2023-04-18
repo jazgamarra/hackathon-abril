@@ -4,89 +4,66 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
-    <link href="https://fonts.cdnfonts.com/css/sf-mono" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
-    <title>Registro de Guardias</title>
+    <title>FORMU</title>
 </head>
-<body class="bg-[#9c8f64]">
-    <div class="max-w-7xl mx-auto flex flex-col items-center h-[100vh]">
-        <!-- Sidebar -->
-        <div class="fixed flex flex-col left-0 w-14 md:w-64 hover:w-64 bg-gray-900 h-full text-white transition-all duration-300 border-none z-10 sidebar ">
-            <div class="overflow-y-auto overflow-x-hidden flex flex-col justify-between flex-grow">
-                <ul class="flex flex-col py-4 space-y-1">
-                    <li class="px-5 hidden md:block">
-                        <div class="flex flex-row items-center h-8">
-                            <div class="text-sm font-semibold tracking-wide text-gray-400 uppercase">Menu</div>
-                        </div>
-                    </li>
-                <li>
-                    <a href="#" class="active relative flex flex-row items-center h-11 focus:outline-none hover:bg-[#FFBA0078] text-white-600 pr-6">
-                        <span class="inline-flex justify-center items-center ml-4">
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
-                        </span>
-                        <span class="ml-2 text-sm tracking-wide truncate">Principal</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-[#FFBA0078] text-white-600 hover:text-white border-l-4 border-transparent hover:border-blue-500 dark:hover:border-gray-800 pr-6">
-                        <span class="inline-flex justify-center items-center ml-4">
-                            <img class="w-5 h-5" src="img/fecha-limite.webp">
-                        </span>
-                        <span class="ml-2 text-sm tracking-wide truncate">Calendario</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-[#FFBA0078] text-white-600 hover:text-white border-l-4 border-transparent hover:border-blue-500 dark:hover:border-gray-800 pr-6">
-                        <span class="inline-flex justify-center items-center ml-4">
-                            <img class="w-5 h-5" src="img/sombrero-de-la-policia.webp">
-                        </span>
-                        <span class="ml-2 text-sm tracking-wide truncate">Guardias</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-[#FFBA0078] text-white-600 hover:text-white border-l-4 border-transparent hover:border-blue-500 dark:hover:border-gray-800 pr-6">
-                        <span class="inline-flex justify-center items-center ml-4">
-                            <img class="w-5 h-5" src="img/campana.webp">
-                        </span>
-                        <span class="ml-2 text-sm tracking-wide truncate">Notificaciones</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-[#FFBA0078] text-white-600 hover:text-white border-l-4 border-transparent hover:border-blue-500 dark:hover:border-gray-800 pr-6">
-                    <span class="inline-flex justify-center items-center ml-4">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                        </svg>
-                    </span>
-                    <span class="ml-2 text-sm tracking-wide truncate">ConfiguraciÃ³n</span>
-                    </a>
-                </li> 
-                </ul>
+<body class="bg-gray-100">
+
+    <header class="bg-[#678983]">
+        <nav class="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
+            <div>
+                <img class="h-12 inline-block mr-2" src="../statics/img/logojusticia.png" alt="Logo">
+                <span class="text-lg font-bold text-white">Gestión Penitenciaria</span>
             </div>
-        </div>
-        <!-- ./Sidebar -->
     
-        <!-- FORMULARIO GUARDIA -->
-        <form method="POST" class="bg-gray-700 p-[2rem] md:ml-64 flex flex-col justify-evenly gap-[2rem] shadow-[0px_0px_65px_7px_rgba(0,0,0,0.9);] h-full ml-14 md:ml-64">
-            <fieldset class="border-2 rounded-md flex flex-col justify-evenly w-[75rem] h-[25rem] px-[1rem]">
-                <legend class="text-white text-xl px-[1rem]">Registro Guardia</legend>
-                
-                <div class="w-[95%] mx-auto">
-                    <label class="pb-[2rem] text-white font-bold uppercase block" for="nombre_guardia">Nombre y Apellido del Guardia</label>
-                    <input class="w-[100%] bg-[gray] p-[10px] block border-2 mb-[20px] rounded-[10px] placeholder-gray-900 font-semibold" type="text" name="nombre_guardia" id="nombre_guardia" placeholder="Ingrese el Nombre">
-                </div>
+          <div class="hidden lg:flex lg:gap-x-12">
+            <a href="asignado.html" class="text-sm font-semibold leading-6 text-white hover:text-cyan-900">Espacios asignados</a>
+      
+            <a href="pabellon.html" class="text-sm font-semibold leading-6 text-white hover:text-cyan-900">Datos Pabellón</a>
+      
+            <a href="places.html" class="text-sm font-semibold leading-6 text-white hover:text-cyan-900">Espacios</a>
+      
+            <a href="registro_ppl.html" class="text-sm font-semibold leading-6 text-white hover:text-cyan-900">Datos PPL</a>
             
-                <!-- <div class="w-[95%] mx-auto">
-                    <label class="pb-[2rem] text-white font-bold uppercase block" for="apellido_guardia">Apellido del Guardia</label>
-                    <input class="w-[100%] bg-[gray] p-[10px] block border-2 mb-[20px] rounded-[10px] placeholder-gray-900 font-semibold" type="text" name="apellido_guardia" id="apellido_guardia" placeholder="Ingrese el Apellido">
-                </div> -->
-                    
-            </fieldset>
-            <input type="submit" value="Crear Registro" class="px-[20px] py-[10px] text-white cursor-pointer rounded-md bg-gray-900 hover:bg-gray-800">    
+            <a href="formu.html" class="text-sm font-semibold leading-6 text-white hover:text-cyan-900">Datos del guardia</a>
+
+          </div>
+        </nav>
+    </header>
+    
+    <div class="py-[2rem] lg:px-8 flex flex-col justify-evenly items-center">
+        
+        <div class="mx-auto max-w-2xl text-center">
+            <h2 class="text-3xl font-bold tracking-tight text-gray-900 -mt-5">Datos del Guardia</h2>
+        </div>
+
+        <form action="#" method="POST" class="mx-auto max-w-xl bg-[#F0E9D2] shadow-md rounded px-8 pt-6 pb-8 mb-2 mt-2">
+            <div class="mb-2 flex flex-col justify-around h-[20rem]">
+                <div>
+                    <label for="nombre_guardia" class="block text-sm font-bold leading-6 text-gray-900 pb-[1rem] -mb-8">Nombre y Apellido</label>
+                </div>
+
+                <div>
+                    <input type="text" name="nombre_guardia" id="nombre_guardia" placeholder="Ingrese el nombre del guardia" autocomplete="given-name" class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                </div>
+        
+            <div class="sm:col-span-2">
+                <label for="id_pabellon" class="block text-sm font-bold leading-6 text-gray-900 mb-2">Número de pabellón que le corresponda</label>
+                <div class="mt-2.5">
+                    <select class="block w-[25%] rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" name="id_pabellon" id="id_pabellon">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                    </select>
+                 </div>
+            </div>
+            
+            <div class="mt-10">
+                <button type="submit" class="block w-full rounded-md bg-[#181D31] px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-cyan-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Guardar</button>
+            </div>
+
         </form>
-        <!-- ./FORMULARIO GUARDIA -->    
+    
     </div>
 </body>
 </html>
