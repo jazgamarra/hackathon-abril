@@ -1,7 +1,9 @@
+
+from time import time
 from flask import Flask, render_template, request
 from flask_sqlalchemy import SQLAlchemy
 
-# from datetime import datetime
+from datetime import datetime, time, date
 
 
 app = Flask(__name__)
@@ -15,7 +17,7 @@ class Pabellon(db.Model):
 class Guardia(db.Model):
     id_guardia = db.Column (db.Integer, primary_key=True)
     nombre_guardia = db.Column (db.String (50), nullable=False)
-    id_espacio_asignado = db.Column (db.Integer, db.ForeignKey('espacioasignado.id_espacio_asignado'))
+    # id_espacio_asignado = db.Column (db.Integer, db.ForeignKey('espacioasignado.id_espacio_asignado'))
 
 class Espacios(db.Model):
     id_espacio = db.Column (db.Integer, primary_key=True)
@@ -24,6 +26,7 @@ class Espacios(db.Model):
 
 class EspacioAsignado(db.Model):
     id_espacio_asignado = db.Column (db.Integer, primary_key=True)
+    nombre_guardia = db.Column (db.String (50), db.ForeignKey('guardia.nombre_guardia'))
     id_espacio = db.Column (db.Integer, db.ForeignKey('espacios.id_espacio'))
     hora_inicio = db.Column (db.Time, nullable=False)
     hora_fin = db.Column (db.Time, nullable=False)
@@ -37,10 +40,8 @@ class PPL(db.Model):
     id_pabellon = db.Column (db.Integer, db.ForeignKey('pabellon.id_pabellon'))
 
 
-
 with app.app_context():
     db.create_all()
-
 
 @app.route("/espacioinput", methods = ["GET","POST"])
 def agregar_datos_espacios(): 
@@ -79,13 +80,27 @@ def agregar_datos_espacioasignado():
     if request.method == "POST":
         diccionario = request.form
         id_espacio= diccionario["id_espacio"]
-        hora_inicio = diccionario ["hora_inicio"]
-        hora_fin = diccionario ["hora_fin"]
+        hora_inicio_raw = diccionario ["hora_inicio"]
+        hora_fin_raw = diccionario ["hora_fin"]
         fecha = diccionario ["fecha"]
-        datos_a_agregar = EspacioAsignado(id_espacio=id_espacio, hora_inicio=hora_inicio, hora_fin=hora_fin, fecha=fecha)
-        db.session.add(datos_a_agregar)
+        nombre_guardia = diccionario ["nombre_guardia"]
+        print(fecha)
+
+        hora_inicio = datetime.strptime(hora_inicio_raw, '%H:%M').time()
+        hora_fin = datetime.strptime(hora_fin_raw, '%H:%M').time()
+        
+
+        print("---------------------------------------------------")
+        print(hora_inicio, hora_fin)
+        print(type(hora_inicio), type(hora_fin))
+
+        print("---------------------------------------------------")
+
+
+        datos_a_agregar = EspacioAsignado(id_espacio=id_espacio, hora_inicio=hora_inicio, hora_fin=hora_fin, fecha=date, nombre_guardia=nombre_guardia)
+        db.session.add(datos_a_agregar)         
         db.session.commit()
-    return(render_template("espacio.html"))
+    return(render_template("formularioespacioasignado.html"))
 
 @app.route("/pplinput", methods= ["GET", "POST"])
 def agregar_datos_ppl():
