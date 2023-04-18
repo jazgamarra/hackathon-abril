@@ -75,7 +75,7 @@ def agregar_datos_espacios():
         datos_a_agregar = Espacios(nombre_espacio=nombre_espacio, descripcion=descripcion)
         db.session.add(datos_a_agregar)
         db.session.commit()
-    return (render_template("formularioespacios.html"))
+    return render_template("formularioespacios.html")
 
 @app.route("/guardiainput", methods = ["GET","POST"])
 def agregar_datos_guardias():
@@ -88,7 +88,8 @@ def agregar_datos_guardias():
         datos_a_agregar = Guardia(nombre_guardia=nombre_guardia, id_pabellon=id_pabellon)
         db.session.add(datos_a_agregar)
         db.session.commit()
-    return (render_template("formularioguardias.html"))
+    lista_pabellones = Pabellon.query.all()
+    return (render_template("formularioguardias.html", lista_pabellones=lista_pabellones))
     
 @app.route("/pabelloninput", methods = ["GET", "POST"])
 def agregar_datos_pabellon():
@@ -105,7 +106,7 @@ def agregar_datos_pabellon():
 def agregar_datos_espacioasignado():
     if request.method == "POST":
         diccionario = request.form
-        id_espacio= diccionario["id_espacio"]
+        id_espacio = diccionario["id_espacio"]
         hora_inicio_raw = diccionario ["hora_inicio"]
         hora_fin_raw = diccionario ["hora_fin"]
         fecha_raw = diccionario ["fecha"]
@@ -117,7 +118,8 @@ def agregar_datos_espacioasignado():
         datos_a_agregar = EspacioAsignado(id_espacio=id_espacio, epoch_inicio=hora_inicio, epoch_fin=hora_fin)
         db.session.add(datos_a_agregar)         
         db.session.commit()
-    return(render_template("formularioespacioasignado.html"))
+    lista_espacios = Espacios.query.all()
+    return(render_template("formularioespacioasignado.html", lista_espacios = lista_espacios))
 
 @app.route("/pplinput", methods= ["GET", "POST"])
 def agregar_datos_ppl():
@@ -130,20 +132,18 @@ def agregar_datos_ppl():
         datos_a_agregar = PPL(nombre_ppl=nombre_ppl, n_de_celda=n_de_celda,id_guardia=id_guardia,id_pabellon=id_pabellon)
         db.session.add(datos_a_agregar)
         db.session.commit()
-    return(render_template("formularioppl.html"))
+    lista_guardias = Guardia.query.all()
+    lista_pabellones = Pabellon.query.all()
+    return(render_template("formularioppl.html", lista_guardias=lista_guardias, lista_pabellones=lista_pabellones))
        
-@app.route("/pruebaquery")
-def pruebaquery():
-    all_guardias = Guardia.query.all()
-    # for guardia in all_guardias:
-    #     print(guardia.nombre_guardia)
+# @app.route("/pruebaquery")
+# def pruebaquery():
+#     all_guardias = Guardia.query.all()
+#     # for guardia in all_guardias:
+#     #     print(guardia.nombre_guardia)
 
-    return render_template("pruebavisualizacion.html", lista_guardias=all_guardias)
+    # return render_template("pruebavisualizacion.html", lista_guardias=all_guardias)
 
-@app.route("/test_visualizacion")
-def test_visualizacion():
-    
-    return render_template('test_visualizacion.html')
 
 #Esto para que podamos correr
 if __name__ == "__main__":
