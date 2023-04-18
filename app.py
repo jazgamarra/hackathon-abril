@@ -7,7 +7,6 @@ import datetime
 import time
 
 
-
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///basededatos.db'
 db = SQLAlchemy(app)
@@ -123,9 +122,10 @@ def agregar_datos_ppl():
 @app.route("/pruebaquery")
 def pruebaquery():
     all_guardias = Guardia.query.all()
-    print (all_guardias)
-    return all_guardias
+    # for guardia in all_guardias:
+    #     print(guardia.nombre_guardia)
 
+    return render_template("pruebavisualizacion.html", lista_guardias=all_guardias)
 
 
 
