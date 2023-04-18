@@ -1,78 +1,57 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Registro PPL</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
+    <title>places</title>
 </head>
-
-<!-- Encabezado -->
-<header class="bg-[#678983]">
-    <nav class="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
-        <div>
+<body class="bg-gray-100">
+    
+    <header class="bg-[#678983]">
+        <nav class="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
+          <div>
             <img class="h-12 inline-block mr-2" src="../statics/img/logojusticia.png" alt="Logo">
             <span class="text-lg font-bold text-white">Gestión Penitenciaria</span>
         </div>
+    
+          <div class="hidden lg:flex lg:gap-x-12">
+            <a href="asignado.html" class="text-sm font-semibold leading-6 text-white hover:text-cyan-900">Espacios asignados</a>
+      
+            <a href="pabellon.html" class="text-sm font-semibold leading-6 text-white hover:text-cyan-900">Datos Pabellón</a>
+      
+            <a href="places.html" class="text-sm font-semibold leading-6 text-white hover:text-cyan-900">Espacios</a>
+      
+            <a href="registro_ppl.html" class="text-sm font-semibold leading-6 text-white hover:text-cyan-900">Datos PPL</a>
+            
+            <a href="formu.html" class="text-sm font-semibold leading-6 text-white hover:text-cyan-900">Datos del guardia</a>
 
-      <div class="hidden lg:flex lg:gap-x-12">
-        <a href="asignado.html" class="text-sm font-semibold leading-6 text-white hover:text-cyan-900">Espacios asignados</a>
-  
-        <a href="pabellon.html" class="text-sm font-semibold leading-6 text-white hover:text-cyan-900">Datos Pabellón</a>
-  
-        <a href="places.html" class="text-sm font-semibold leading-6 text-white hover:text-cyan-900">Espacios</a>
-  
-        <a href="registro_ppl.html" class="text-sm font-semibold leading-6 text-white hover:text-cyan-900">Datos PPL</a>
+          </div>
+        </nav>
+    </header>
+
+    <div class="py-[2rem] lg:px-8 flex flex-col justify-evenly items-center">
         
-        <a href="formu.html" class="text-sm font-semibold leading-6 text-white hover:text-cyan-900">Datos del guardia</a>
-
-      </div>
-    </nav>
-</header>
-
-<!-- Cuerpo -->
-<body class="bg-gray-100">
-   
-    <div class="mx-auto max-w-2xl text-center mt-2 mb-2">
-        <h2 class="text-3xl font-bold tracking-tight text-gray-900 mb-2">Registro PPL</h2>
-    </div>
-
-        <div class="mx-auto w-2/3 bg-[#F0E9D2]">
-            <form class="bg-[#F0E9D2] shadow-md rounded px-8 pt-6 pb-8 mb-4" method="post">
-                <div class="mb-4">
-                    <label class="block text-black font-bold mb-2" for="nombre_ppl">Nombre y Apellido</label>
-                    <input class="border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="nombre_ppl" name="nombre_ppl" type="text" placeholder="Ingrese el Nombre y Apellido">
-                </div>
-
-                <div class="mb-4">
-                    <label class="block text-black font-bold mb-2" for="n_de_celda">Nro. de Celda</label>
-                    <input class="border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="n_de_celda" name="n_de_celda" type="text" placeholder="Ingrese número de Celda">
-                </div>
-
-                <div class="mb-4">
-                    <label class="block text-black font-bold mb-2" for="id_guardia">ID de Guardia</label>
-                    <select class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" name="id_guardia" id="id_guardia">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                    </select>
-                </div>
-
-                <div class="mb-4">
-                    <label class="block text-black font-bold mb-2" for="id_pabellon">ID de Pabellón</label>
-                    <select class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" name="id_pabellon" id="id_pabellon">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                    </select>
-                </div>
-
-                <div class="flex items-center justify-between">
-                    <button class="block w-full rounded-md bg-[#181D31] px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-cyan-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" type="button">Registrarse</button>
-                </div>
-
-            </form>
+        <div class="mx-auto max-w-2xl text-center">
+            <h2 class="text-3xl font-bold tracking-tight text-gray-900 -mt-5">Espacios</h2>
         </div>
 
     </div>
+
+    <form action="#" method="POST" class="mx-auto max-w-xl bg-[#F0E9D2] shadow-md rounded px-8 pt-6 pb-8 -mt-5">
+        <div class="flex flex-col justify-around h-[20rem]">
+            <label for="nombre_espacio" class="text-gray-900 font-bold mb-2">Ingrese el nombre del espacio</label>
+            <input class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" type="text" name="nombre_espacio" id="nombre_espacio" placeholder="Aqui">
+            <br><br>
+    
+            <label for="descripcion" class="text-gray-900 font-bold mb-2">Alguna descripción</label>
+            <textarea class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" name="descripcion" id="descripcion" cols="30" rows="10" placeholder="Ingrese descripción"></textarea>
+            <br><br>
+            
+            <input class="block w-full rounded-md bg-[#181D31] px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-cyan-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" type="submit" value="Guardar datos">
+        </div>
+    </form>
+
 </body>
 </html>
