@@ -87,14 +87,10 @@ def agregar_datos_guardias():
         datos_a_agregar = Guardia(nombre_guardia=nombre_guardia, id_pabellon=id_pabellon)  
         db.session.add(datos_a_agregar)
         db.session.commit()
-<<<<<<< HEAD
 
     #  Obtener lista de pabellones de la db 
     lista_pabellones = Pabellon.query.all()
 
-=======
-    lista_pabellones = Pabellon.query.all()
->>>>>>> ce70ec991c47078ee8fc47e38e2d6751a8851f03
     return (render_template("formularioguardias.html", lista_pabellones=lista_pabellones))
     
 @app.route("/pabelloninput", methods = ["GET", "POST"])
