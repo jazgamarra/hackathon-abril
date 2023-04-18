@@ -3,8 +3,9 @@ from time import time
 from flask import Flask, render_template, request
 from flask_sqlalchemy import SQLAlchemy
 
-import time
 import datetime
+import time
+
 
 
 app = Flask(__name__)
@@ -44,6 +45,16 @@ class PPL(db.Model):
 with app.app_context():
     db.create_all()
 
+def convertir_a_epoch (fecha_str, hora_str):
+    #Convertir fecha y hora a objetos datetime
+    fecha_hora_str = fecha_str + ' ' + hora_str
+    fecha_hora = datetime.datetime.strptime(fecha_hora_str, '%Y-%m-%d %H:%M')
+    #calcular epoch
+    epoch = int(time.mktime(fecha_hora.timetuple()))
+
+    return epoch
+
+
 
 def convertir_a_epoch(fecha_str, hora_str ): 
     # Convertir fecha y hora a objetos datetime
@@ -72,8 +83,8 @@ def agregar_datos_guardias():
     if request.method == "POST":
         diccionario= request.form
         nombre_guardia = diccionario ["nombre_guardia"]
-        id_espacio_asignado = diccionario ["id_espacio_asignado"]
-        datos_a_agregar = Guardia(nombre_guardia=nombre_guardia, id_espacio_asignado=id_espacio_asignado)
+        # id_espacio_asignado = diccionario ["id_espacio_asignado"]
+        datos_a_agregar = Guardia(nombre_guardia=nombre_guardia)
         db.session.add(datos_a_agregar)
         db.session.commit()
     return (render_template("formularioguardias.html"))
@@ -96,12 +107,12 @@ def agregar_datos_espacioasignado():
         hora_inicio_raw = diccionario ["hora_inicio"]
         hora_fin_raw = diccionario ["hora_fin"]
         fecha_raw = diccionario ["fecha"]
-        nombre_guardia = diccionario ["nombre_guardia"]
-        
-        hora_inicio = convertir_a_epoch(fecha_raw, hora_inicio_raw)
-        hora_fin = convertir_a_epoch(fecha_raw, hora_fin_raw)
+        # nombre_guardia = diccionario ["nombre_guardia"]
+   
+        hora_inicio = convertir_a_epoch (fecha_raw, hora_inicio_raw)
+        hora_fin = convertir_a_epoch (fecha_raw, hora_fin_raw)
 
-        datos_a_agregar = EspacioAsignado(id_espacio=id_espacio, epoch_inicio=hora_inicio, epoch_fin=hora_fin, nombre_guardia=nombre_guardia)
+        datos_a_agregar = EspacioAsignado(id_espacio=id_espacio, epoch_inicio=hora_inicio, epoch_fin=hora_fin)
         db.session.add(datos_a_agregar)         
         db.session.commit()
     return(render_template("formularioespacioasignado.html"))
@@ -119,6 +130,11 @@ def agregar_datos_ppl():
         db.session.commit()
     return(render_template("formularioppl.html"))
        
+@app.route("/pruebaquery")
+def pruebaquery():
+    all_guardias = Guardia.query.all()
+    print (all_guardias)
+    return all_guardias
 
 @app.route("/test_visualizacion")
 def test_visualizacion():
