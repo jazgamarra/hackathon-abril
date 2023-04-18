@@ -50,10 +50,10 @@
             <div class="sm:col-span-2">
                 <label for="id_guardia" class="block text-sm font-bold leading-6 text-gray-900 mb-2">Número de pabellón que le corresponda</label>
                 <div class="mt-2.5">
-                    <select class="block w-[25%] rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" name="id_pabellon" id="id_pabellon">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
+                    <select class="block w-80 rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" name="id_pabellon" id="id_pabellon">
+                        {% for p in lista_pabellones %}
+                        <option value="{{p.id_pabellon}}"> {{p.nombre_pabellon}} </option>
+                        {% endfor %}
                     </select>
                  </div>
             </div>

@@ -84,11 +84,14 @@ def agregar_datos_guardias():
         nombre_guardia = diccionario ["nombre_guardia"]
         id_pabellon = diccionario ["id_pabellon"]
 
-        # id_espacio_asignado = diccionario ["id_espacio_asignado"]
-        datos_a_agregar = Guardia(nombre_guardia=nombre_guardia, id_pabellon=id_pabellon)
+        datos_a_agregar = Guardia(nombre_guardia=nombre_guardia, id_pabellon=id_pabellon)  
         db.session.add(datos_a_agregar)
         db.session.commit()
-    return (render_template("formularioguardias.html"))
+
+    #  Obtener lista de pabellones de la db 
+    lista_pabellones = Pabellon.query.all()
+
+    return (render_template("formularioguardias.html", lista_pabellones=lista_pabellones))
     
 @app.route("/pabelloninput", methods = ["GET", "POST"])
 def agregar_datos_pabellon():
