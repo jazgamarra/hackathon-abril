@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        formulario.
+    </h1>
+
+    <form action="" method="POST">
+    <!-- FORMULARIO PPL -->  
+        <fieldset>
+            <legend>Registro de P.P.L.</legend>
+            <label for="nombre_ppl">Nombre</label>
+            <input type="text" name="nombre_ppl" id="nombre_ppl" placeholder="Ingrese el Nombre">
+            
+            <!-- <label for="apellido_ppl">Apellido</label>
+            <input type="text" name="apellido_ppl" id="apellido_ppl" placeholder="Ingrese el Nombre"> -->
+            
+            <label for="n_de_celda">Nunmero de Celda</label>
+            <input type="text" name="n_de_celda" id="n_de_celda" placeholder="Ingrese el Nombre">
+            
+            <label for="id_guardia">I.D. del Guardia</label>
+            <!-- <input type="text" name="id_guardia" id="id_guardia" placeholder="Ingrese el Nombre"> -->
+            <select name="id_guardia" id="id_guardia">
+                <option value="">--Seleccione un ID--</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+            </select>
+            
+            <label for="id_pabellon">I.D. pabellon</label>
+            <!-- <input type="text" name="id_pabellon" id="id_pabellon" placeholder="Ingrese el Nombre"> -->
+            <select name="id_pabellon" id="id_pabellon">
+                <option value="">--Seleccione un ID--</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+            </select>
+        </fieldset>
+    <!-- ./FORMULARIO PPL -->
+
+    <!-- FORMULARIO GUARDIA -->
+        <fieldset>
+            <legend>Registro Guardia</legend>
+            <label for="nombre_guardia">Nombre del Guardia</label>
+            <input type="text" name="nombre_guardia" id="nombre_guardia" placeholder="Ingrese el Nombre">
+        </fieldset>
+    <!-- ./FORMULARIO GUARDIA -->
+    
+    <!-- FORMULARIO PABELLON -->
+        <fieldset>
+            <legend>Registro Pabellon</legend>
+            <label for="nombre_pabellon">Nombre del Pabellon</label>
+            <input type="text" name="nombre_pabellon" id="nombre_pabellon" placeholder="Ingrese el Nombre del Pabellon">
+        </fieldset>
+    <!-- ./FORMULARIO PABELLON -->
+
+    <!-- FORMULARIO ESPACIOS -->
+        <fieldset>
+            <legend>Registro Espacios</legend>
+            <label for="nombre_espacio">Nombre del Espacios</label>
+            <input type="text" name="nombre_espacio" id="nombre_espacio" placeholder="Ingrese el Nombre del Espacios">
+
+            <label for="descripcion">Descripcion</label>
+            <textarea name="descripcion" id="descripcion" cols="30" rows="10" placeholder="Describa el espacio"></textarea>
+        </fieldset>
+    <!-- ./FORMULARIO ESPACIOS -->
+
+    <!-- FORMULARIO ESPACIOS ASIGNADOS -->
+        <fieldset>
+            <legend>Registro de Espacios Asignados</legend>
+            <label for="id_espacio">ID del Espacio</label>
+            <select name="id_espacio" id="id_espacio">
+                <option value="">--Seleccione un ID--</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+            </select>
+
+            <label for="hora_inicio">Hora de Inicio</label>
+            <input type="time" name="hora_inicio" id="hora_inicio">
+            
+            <label for="hora_fin">Hora Final</label>
+            <input type="time" name="hora_fin" id="hora_fin">
+
+            <label for="fecha">Fecha</label>
+            <input type="date" name="fecha" id="fecha">
+        </fieldset>
+    <!-- ./FORMULARIO ESPACIOS ASIGNADOS -->
+    
+    <input type="submit" value="Enviar"> 
+
+    </form>
+</body>
+</html>
