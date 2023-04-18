@@ -1,0 +1,20 @@
+function convertirLista(cadena) {
+    let lista = cadena.split(/'|, /);
+    lista = lista.filter((nombre) => nombre !== ""); // Eliminar elementos vacíos
+    lista = lista.filter((nombre) => nombre !== "["); // Eliminar elementos vacíos
+    lista = lista.filter((nombre) => nombre !== "]"); // Eliminar elementos vacíos
+    return lista;
+}
+
+let jinja_list = document.getElementById("test");
+
+let nombres = jinja_list.getAttribute("value");
+let listaNombres = convertirLista(nombres);
+
+let container = document.getElementById("container");
+
+listaNombres.forEach((elemento, indice, arr) => {
+const h1 = document.createElement("h1");
+h1.textContent = elemento;
+container.appendChild(h1);
+});

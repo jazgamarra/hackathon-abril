@@ -29,11 +29,9 @@ class EspacioAsignado(db.Model):
     id_espacio_asignado = db.Column (db.Integer, primary_key=True)
     nombre_guardia = db.Column (db.String (50), db.ForeignKey('guardia.nombre_guardia'))
     id_espacio = db.Column (db.Integer, db.ForeignKey('espacios.id_espacio'))
-    epoch_inicio = db.Column (db.Integer, nullable =False)
+    epoch_inicio = db.Column (db.Integer, nullable=False)
     epoch_fin = db.Column (db.Integer, nullable=False)
-    # hora_inicio = db.Column (db.Time, nullable=False)
-    # hora_fin = db.Column (db.Time, nullable=False)
-    # fecha = db.Column (db.Date, nullable=False)
+    
 
 class PPL(db.Model):
     id_PPL = db.Column (db.Integer, primary_key=True)
@@ -54,6 +52,18 @@ def convertir_a_epoch (fecha_str, hora_str):
     epoch = int(time.mktime(fecha_hora.timetuple()))
 
     return epoch
+
+
+
+def convertir_a_epoch(fecha_str, hora_str ): 
+    # Convertir fecha y hora a objetos datetime
+    fecha_hora_str = fecha_str + ' ' + hora_str
+    fecha_hora = datetime.datetime.strptime(fecha_hora_str, '%Y-%m-%d %H:%M')
+
+    # Calcular epoch
+    epoch = int(time.mktime(fecha_hora.timetuple()))
+
+    return epoch 
 
 
 @app.route("/espacioinput", methods = ["GET","POST"])
