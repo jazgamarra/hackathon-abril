@@ -7,7 +7,6 @@ import datetime
 import time
 
 
-
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///basededatos.db'
 db = SQLAlchemy(app)
@@ -133,18 +132,17 @@ def agregar_datos_ppl():
         db.session.commit()
     return(render_template("formularioppl.html"))
        
-# @app.route("/pruebaquery")
-# def pruebaquery():
-#     # Hacer una peticion para obtener todos los datos de la base de datos 
-#     all_guardias = Guardia.query.all()
-    
-#     # for guardia in all_guardias:
-#     #     print(guardia.nombre_guardia)s
+@app.route("/pruebaquery")
+def pruebaquery():
+    all_guardias = Guardia.query.all()
+    # for guardia in all_guardias:
+    #     print(guardia.nombre_guardia)
 
-#     return render_template('prueba_visualizacion.html', lista_guardias=all_guardias)
+    return render_template("pruebavisualizacion.html", lista_guardias=all_guardias)
 
 @app.route("/test_visualizacion")
 def test_visualizacion():
+    
     return render_template('test_visualizacion.html')
 
 #Esto para que podamos correr
