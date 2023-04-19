@@ -53,9 +53,11 @@ def convertir_a_epoch (fecha_str, hora_str):
     epoch = int(time.mktime(fecha_hora.timetuple()))
     return epoch
 
+@app.route("/login")
+def home():
+    print("Raiz")
+    return render_template("login.html")
 
-        
-        
 
 @app.route("/espacioinput", methods = ["GET","POST"])
 def agregar_datos_espacios(): 
@@ -160,6 +162,28 @@ def borrar(id):
     db.session.delete(elemento_borrar)
     db.session.commit()
     return 'se borro el id',id
+
+@app.route("/consulta_para_guardias")
+def consulta_para_guardias():
+    print("funca")
+    presos = [{"nombre": "Esteban Ramos", "numero": "12345"},
+            {"nombre": "Alejandro Espinola", "numero": "55680"},
+            {"nombre": "Kento Nishikawa", "numero": "32450"},
+              {"nombre": "Pedro Sanchez", "numero": "24680"},
+              {"nombre": "Elias Morinigo", "numero": "12380"},
+              {"nombre": "Joseph Ojeda", "numero": "24667"},
+              {"nombre": "Pedro Urdapilleta", "numero": "25280"},
+              {"nombre": "Paola Yegros", "numero": "23465"},
+              {"nombre": "Jazmin Gamarra", "numero": "56478"},
+              {"nombre": "Gustavo Casaccia", "numero": "2319"},
+              {"nombre": "Magali Martinez", "numero": "5278"},
+              {"nombre": "Ana Maldonado", "numero": "23458"}]
+
+    nombre = presos[0]["nombre"]
+
+    print(nombre)
+    print(nombre[0])
+    return render_template("consulta_para_guardias.html", presos=presos)
 
 if __name__ == "__main__":
     app.run (debug=True)
