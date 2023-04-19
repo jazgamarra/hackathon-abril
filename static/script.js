@@ -7,6 +7,7 @@ $.ajax({
     let container = document.getElementById("container");
 
     lista.forEach((elemento, indice, arr) => {
+      console.log(elemento);
       const div = document.createElement("div");
 
       // Crear el contenedor principal
@@ -45,15 +46,19 @@ $.ajax({
       );
 
       const title = document.createElement("h2");
-      title.classList.add("text-center", "font-['SF_Mono']");
-      title.textContent = "Of. Jorge Gonzalez";
+      title.classList.add("text-center", "font-['SF_Mono']", "w-full");
+      title.textContent = `${elemento["guardia"]}`;
 
       const timeSection = document.createElement("div");
       timeSection.classList.add("w-[30%]", "border-l-4", "border-black");
 
       const time = document.createElement("p");
-      time.classList.add("text-center");
-      time.textContent = "17:00 hs";
+      time.classList.add("text-center", "mx-10");
+      const timestamp = elemento["hora_inicio"]; // timestamp en segundos desde Epoch (1 de enero de 1970)
+      const fecha = new Date(timestamp * 1000); // multiplica por 1000 para convertir a milisegundos
+      const hora = fecha.toLocaleTimeString(); // convierte a hora local en formato hh:mm:ss
+
+      time.textContent = hora;
 
       // Agregar texto y tiempo a la sección de texto
       timeSection.appendChild(time);
@@ -73,7 +78,7 @@ $.ajax({
         "text-center",
         "text-white"
       );
-      bottomText.textContent = "patio";
+      bottomText.textContent = `${elemento["espacio"]}`;
       bottomSection.appendChild(bottomText);
 
       // Agregar contenido a la tarjeta
@@ -81,7 +86,7 @@ $.ajax({
       cardContainer.appendChild(bottomSection);
 
       // Agregar la tarjeta al contenedor principal del documento
-      document.body.appendChild(cardContainer);
+      container.appendChild(cardContainer);
 
       container.appendChild(div);
     });

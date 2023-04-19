@@ -149,11 +149,14 @@ def api_turnos():
     datos = crear_lista_turnos()
     return jsonify(datos)
 
-@app.route("/ver_turnos")
+@app.route("/ver_turnos", methods=['GET', 'POST'])
 def ver_turnos():   
+    return render_template('visualizacion.html')  
+
+@app.route("/test_turnos", methods=['GET', 'POST'])
+def test_turnos():   
     return render_template('test_visualizacion.html')  
 
- 
 @app.route('/borrar/<int:id>')
 def borrar(id):
     elemento_borrar = Guardia.query.get(id)
