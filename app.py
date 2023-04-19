@@ -158,12 +158,28 @@ def ver_turnos():
 def test_turnos():   
     return render_template('test_visualizacion.html')  
 
+@app.route("/")
+def home():   
+    return render_template('home.html')  
+
+@app.route("/consultar_reos")
+def consultar_reos():   
+    presos = PPL.query.all()
+    for p in presos: 
+        print(p.nombre_ppl)
+
+    guardia = Guardia.query.filter_by(id_guardia=1).first() 
+    guardia.pabellon = Pabellon.query.filter_by(id_pabellon=guardia.id_pabellon).first().nombre_pabellon
+
+    return render_template('consultar_reos.html', presos=presos, guardia=guardia)  
+
 @app.route('/borrar/<int:id>')
 def borrar(id):
-    elemento_borrar = Guardia.query.get(id)
+    elemento_borrar = PPL.query.get(id)
     db.session.delete(elemento_borrar)
     db.session.commit()
     return 'se borro el id',id
+
 
 if __name__ == "__main__":
     app.run (debug=True)

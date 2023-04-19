@@ -14,7 +14,7 @@
         aria-label="Global"
       >
         <div>
-          <a href="intermedio">
+          <a href="/">
             <img
               class="h-12 inline-block mr-2 scale-[100%]"
               src="../static/img/Logo.png"
@@ -76,9 +76,9 @@
           <h1 class="border border-[#181D31] m-4 text-center">
             ID del Guardia
           </h1>
-          <h1 class="m-4 text-center">"ID del guardia"</h1>
+          <h1 class="m-4 text-center">#{{guardia.id_guardia}}</h1>
           <h1 class="border border-[#181D31] m-4 text-center">Pabellón</h1>
-          <h1 class="m-4 text-center">"Pabellón"</h1>
+          <h1 class="m-4 text-center">{{guardia.pabellon}}</h1>
         </div>
       </div>
 
@@ -86,7 +86,7 @@
       <div class="w-full">
         <div class="bg-gray-100 text-center pb-4">
           <h1 class="my-8 text-black text-5xl border-solid">
-            Nombre del guardia
+            {{guardia.nombre_guardia}}
           </h1>
         </div>
 
@@ -119,47 +119,17 @@
             class="flex flex-col items-center justify-between w-full p-4 bg-[#F0E9D2] rounded-lg shadow-md"
           >
             <h2 class="text-xl font-bold text-gray-800">
-              {{ preso['nombre'] }}
+              {{ preso.nombre_ppl }}
             </h2>
             <div class="flex justify-between w-full mt-4">
               <p class="text-gray-700">Número:</p>
-              <p class="font-bold text-gray-900">{{ preso['numero'] }}</p>
+              <p class="font-bold text-gray-900">{{ preso.id_PPL }}</p>
             </div>
           </div>
           {% endfor %}
         </div>
       </div>
     </div>
-    <script>
-      const form = document.getElementById("buscador");
-      const resultados = document.getElementById("resultados");
-      // const presos = {{ presos|tojson }};
-
-      form.addEventListener("submit", (event) => {
-        event.preventDefault(); // Evita que se envíe el formulario
-
-        const termino = event.target.querySelector("input").value.toLowerCase(); // Obtiene el término de búsqueda
-        const resultadosFiltrados = presos.filter((preso) => {
-          return (
-            preso.nombre.toLowerCase().includes(termino) ||
-            preso.numero.toLowerCase().includes(termino)
-          );
-        }); // Filtra los resultados que coinciden con el término de búsqueda
-
-        // Actualiza la lista de resultados en el HTML
-        resultados.innerHTML = "";
-        resultadosFiltrados.forEach((preso) => {
-          resultados.innerHTML += `
-                <div class="flex flex-col items-center justify-between w-full p-4 bg-[#F0E9D2] rounded-lg shadow-md">
-                    <h2 class="text-xl font-bold text-gray-800">${preso.nombre}</h2>
-                    <div class="flex justify-between w-full mt-4">
-                        <p class="text-gray-700">Número:</p>
-                        <p class="font-bold text-gray-900">${preso.numero}</p>
-                    </div>
-                </div>
-            `;
-        });
-      });
     </script>
   </body>
 </html>

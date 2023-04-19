@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -7,7 +7,9 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <title>Document</title>
   </head>
-  <body class="bg-[url('../static/img/background.jpeg')] bg-no-repeat bg-cover">
+  <body
+    class="bg-[url('../static/img/background.jpeg')] bg-no-repeat bg-cover p-10"
+  >
     <!-- component -->
     <div class="flex flex-col mx-auto -mt-20 overflow-hidden">
       <div
@@ -24,7 +26,7 @@
               </div>
               <!-- Cartel de bienvenido -->
               <h1
-                class="relative z-0 w-full max-w-md py-2 text-4xl font-black text-left text-white sm:py-5 sm:text-6xl mb-[1rem]"
+                class="relative z-0 w-full max-w-md py-2 text-4xl font-black text-left text-white sm:py-5 sm:text-6xl mb-[1rem] p-3"
                 data-unsp-sanitized="clean"
               >
                 Bienvenido
@@ -36,18 +38,16 @@
               >
                 <!-- Boton chico -->
                 <a
-                  href="consulta_para_guardias"
-                  class="flex items-center justify-center w-full px-8 py-3 text-base font-medium leading-6 text-white text-blue-600 transition duration-150 ease-in-out border border-transparent rounded-lg sm:w-auto sm:rounded-full bg-[#181D31] xl:px-10 hover:bg-[#323a59] focus:outline-none focus:border-blue-700 focus:shadow-outline-blue md:py-4 xl:text-xl"
-                  data-unsp-sanitized="clean"
+                  href="{{url_for('consultar_reos')}}"
+                  class="opacity-75 flex items-center justify-center w-full px-8 py-3 text-base font-medium leading-6 text-white text-blue-600 transition duration-150 ease-in-out border border-transparent rounded-lg sm:w-auto sm:rounded-full bg-[#181D31] xl:px-10 hover:bg-[#323a59] focus:outline-none focus:border-blue-700 focus:shadow-outline-blue md:py-4 xl:text-xl"
                 >
-                  InformaciÃ³n Guardias
+                  Información Guardias
                 </a>
 
                 <!-- Boton Grande -->
                 <a
-                  href="#"
-                  class="flex items-center justify-center w-full px-8 py-3 text-base font-medium leading-6 text-white text-blue-600 transition duration-150 ease-in-out border border-transparent rounded-lg sm:w-auto sm:rounded-full bg-[#181D31] xl:px-10 hover:bg-[#323a59] focus:outline-none focus:border-blue-700 focus:shadow-outline-blue md:py-4 xl:text-xl"
-                  data-unsp-sanitized="clean"
+                  href="{{url_for('agregar_datos_ppl')}}"
+                  class="opacity-75 flex items-center justify-center w-full px-4 py-2 text-base font-medium leading-6 text-white text-blue-600 transition duration-150 ease-in-out border border-transparent rounded-lg sm:w-auto sm:rounded-full bg-[#181D31] xl:px-10 hover:bg-[#323a59] focus:outline-none focus:border-blue-700 focus:shadow-outline-blue md:py-4 xl:text-xl"
                 >
                   Ir a Registros
                 </a>
