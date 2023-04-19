@@ -159,16 +159,23 @@ def test_turnos():
     return render_template('test_visualizacion.html')  
 
 @app.route("/")
+def login():   
+    return render_template('test_login.html')  
+
+@app.route("/home")
 def home():   
     return render_template('home.html')  
 
-@app.route("/consultar_reos")
+@app.route("/consultar_reos", methods=['GET', "POST"])
 def consultar_reos():   
-    presos = PPL.query.all()
-    for p in presos: 
-        print(p.nombre_ppl)
 
-    guardia = Guardia.query.filter_by(id_guardia=1).first() 
+    if request.method == 'POST': 
+        id_guardia = request.form['id_guardia']
+    else: 
+        id_guardia = 1
+    
+    guardia = Guardia.query.filter_by(id_guardia=id_guardia).first() 
+    presos = PPL.query.filter_by(id_guardia=id_guardia).all()
     guardia.pabellon = Pabellon.query.filter_by(id_pabellon=guardia.id_pabellon).first().nombre_pabellon
 
     return render_template('consultar_reos.html', presos=presos, guardia=guardia)  

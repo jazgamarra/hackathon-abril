@@ -91,14 +91,17 @@
         </div>
 
         <!--Buscador-->
-        <form id="buscador">
+        <form id="buscador" method="post">
           <div
             class="flex items-center border-b border-b-2 border-[#678983] py-2"
           >
             <input
               class="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none"
               type="text"
-              placeholder="Buscar por nombre o número de preso"
+              placeholder="Introducir ID del guardia"
+              name="id_guardia"
+              id="id_guardia"
+
             />
             <button
               class="mx-4 flex-shrink-0 bg-[#678983] hover:bg-[#181D31] border-[#678983] hover:border-[#181D31] text-sm border-4 text-white py-1 px-2 rounded"
