@@ -53,10 +53,20 @@ def convertir_a_epoch (fecha_str, hora_str):
     epoch = int(time.mktime(fecha_hora.timetuple()))
     return epoch
 
-@app.route("/login")
+@app.route("/home")
 def home():
-    print("Raiz")
+    print("funca")
+    return render_template("home.html")
+
+@app.route("/")
+def login():
+    print("funca")
     return render_template("login.html")
+
+@app.route("/intermedio")
+def Intermedio():
+    print("Inicio de sesion correcto, pasando a intermedio")
+    return render_template("intermedio.html")
 
 
 @app.route("/espacioinput", methods = ["GET","POST"])

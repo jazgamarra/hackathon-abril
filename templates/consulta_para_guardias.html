@@ -11,20 +11,33 @@
 
 
     <!-- Encabezado -->
-<header class="bg-[#678983] shadow-md py-4 ">
-    <div class="container mx-auto px-4 flex justify-between items-center">
-        <div>
-            <img class="h-12 inline-block mr-2" src="/static/img/logojusticia.png" alt="Logo">
-            <span class="text-lg font-bold text-white">Gestión Penitenciaria</span>
-        </div>
-        <nav class="flex justify-end">
-            <button class="mr-4 text-sm font-bold text-white hover:text-[#181D31] ">Espacios Asignados</button>
-            <button class="mr-4 text-sm font-bold text-white hover:text-[#181D31]">Datos Pabellon</button>
-            <button class="mr-4 text-sm font-bold text-white hover:text-[#181D31]">Espacios</button>
-            <button class="mr-4 text-sm font-bold text-white hover:text-[#181D31]">Datos PPL</button>
+    <header class="bg-[#678983]">
+        <nav class="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
+            <div>
+                <a href="intermedio">
+                    <img
+                    class="h-12 inline-block mr-2 scale-[100%]"
+                    src="../static/img/Logo.png"
+                    alt="Logo"
+                    />
+                </a>
+              </div>
+      
+    
+          <div class="hidden lg:flex lg:gap-x-12">
+            <a href="{{url_for('agregar_datos_espacioasignado')}}" class="text-sm font-semibold leading-6 text-white hover:text-cyan-900">Espacios asignados</a>
+      
+            <a href="{{url_for('agregar_datos_pabellon')}}" class="text-sm font-semibold leading-6 text-white hover:text-cyan-900"> Pabellón</a>
+      
+            <a href="{{url_for('agregar_datos_espacios')}}" class="text-sm font-semibold leading-6 text-white hover:text-cyan-900">Espacios</a>
+      
+            <a href="{{url_for('agregar_datos_ppl')}}" class="text-sm font-semibold leading-6 text-white hover:text-cyan-900"> PPL</a>
+            
+            <a href="{{url_for('agregar_datos_guardias')}}" class="text-sm font-semibold leading-6 text-white hover:text-cyan-900"> Guardia</a>
+    
+          </div>
         </nav>
-    </div>
-</header>
+    </header>
 
 </head>
 
