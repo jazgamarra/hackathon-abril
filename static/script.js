@@ -12,7 +12,7 @@ $.ajax({
 
       // Crear el contenedor principal
       const cardContainer = document.createElement("div");
-      cardContainer.classList.add("bg-[#F0E9D2]");
+      cardContainer.classList.add("bg-[#F0E9D2]", "grow");
 
       // Contenido de la Tarjeta
       const cardContent = document.createElement("div");
