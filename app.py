@@ -4,7 +4,7 @@ from flask import Flask, render_template, request, jsonify
 from flask_sqlalchemy import SQLAlchemy
 
 import datetime
-import time
+
 
 
 app = Flask(__name__)
@@ -153,7 +153,7 @@ def api_turnos():
 def ver_turnos():
     return render_template('test_visualizacion.html')
 
-
+ 
 @app.route('/borrar/<int:id>')
 def borrar(id):
     elemento_borrar = Guardia.query.get(id)
