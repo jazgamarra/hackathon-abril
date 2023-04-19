@@ -150,7 +150,7 @@ def api_turnos():
     return jsonify(datos)
 
 @app.route("/ver_turnos")
-def ver_turnos():
+def ver_turnos():   
     return render_template('test_visualizacion.html')  
 
 
