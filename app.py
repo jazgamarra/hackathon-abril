@@ -151,9 +151,12 @@ def api_turnos():
 
 @app.route("/ver_turnos")
 def ver_turnos():   
+    return render_template('visualizacion.html')  
+
+@app.route("/test_turnos")
+def test_turnos():   
     return render_template('test_visualizacion.html')  
 
- 
 @app.route('/borrar/<int:id>')
 def borrar(id):
     elemento_borrar = Guardia.query.get(id)

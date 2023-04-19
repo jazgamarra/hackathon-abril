@@ -4,17 +4,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.cdnfonts.com/css/sf-mono" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
     <title>Document</title>
 </head>
 <header class="bg-[#678983] shadow-md py-4 ">
     <div class="container mx-auto px-4 flex justify-between items-center">
         <div>
-            <img class="h-12 inline-block mr-2" src="logojusticia.png" alt="Logo">
-            
-       
+            <img class="h-12 inline-block mr-2" src="logojusticia.png" alt="Logo"> 
 </header>
 
 <body class="bg-gray-100">
@@ -30,110 +29,14 @@
             <!-- ./Titulo Principal -->
             
             <!-- Contenedor de las tarjetas -->
-            <div class=" grid grid-cols-1 md:grid-cols-2 p-4 gap-5">
+            <!-- <div class="grid grid-cols-1 md:grid-cols-2 p-4 gap-5" id="container">
                 
-                <!-- Tarjeta -->
-                <div class="bg-[#F0E9D2]">
-                    <!-- Contenido de la Tarjeta -->
-                    <div class="flex justify-between items-center">
-                        <div class="p-2 bg-[#E6DDC4] h-[150px] flex items-center">
-                            <img class= 'h-40 w-40 ' src="/static/comedor.png" alt="cubiertos">
-                        </div>
-                        
-                        <div class="flex w-[100%] items-center justify-between">
-                            <div class="text-center mx-auto">
-                                <h2 class="font-['SF_Mono']">Of. Jorge Gonzalez</h2>
-                            </div>
-                            
-                            <div class="w-[30%] border-l-4 border-black">
-                                <p class="text-center">17:00 hs</p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- ./Contenido de la Tarjeta -->
-                    <div>
-                        <p class="uppercase bg-[#181D31] text-center text-white">comedor</p>
-                    </div>
-                </div>
-                <!-- ./Tarjeta -->
-
-                <!-- Tarjeta -->
-                <div class="bg-[#F0E9D2]">
-                    <!-- Contenido de la Tarjeta -->
-                    <div class="flex justify-between items-center">
-                        <div class="p-2 bg-[#E6DDC4] h-[150px] flex items-center">
-                            <img class="h-40 w-40" src="/static/patio-de-recreo.png" alt="patio">
-                        </div>
-                        
-                        <div class="flex w-[100%] items-center justify-between">
-                            <div class="text-center mx-auto">
-                                <h2 class="font-['SF_Mono']">Of. Jorge Gonzalez</h2>
-                            </div>
-                            
-                            <div class="w-[30%] border-l-4 border-black">
-                                <p class="text-center">17:00 hs</p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- ./Contenido de la Tarjeta -->
-                    <div>
-                        <p class="uppercase bg-[#181D31] text-center text-white">patio</p>
-                    </div>
-                </div>
-                <!-- ./Tarjeta -->
-
-                <!-- Tarjeta -->
-                <div class="bg-[#F0E9D2]">
-                    <!-- Contenido de la Tarjeta -->
-                    <div class="flex justify-between items-center">
-                        <div class="p-2 bg-[#E6DDC4] h-[150px] flex items-center">
-                            <img class="h-36 w-40" src="/static/hospital.png" alt="salud">
-                        </div>
-                        
-                        <div class="flex w-[100%] items-center justify-between">
-                            <div class="text-center mx-auto">
-                                <h2 class="font-['SF_Mono']">Of. Jorge Gonzalez</h2>
-                            </div>
-                            
-                            <div class="w-[30%] border-l-4 border-black">
-                                <p class="text-center">17:00 hs</p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- ./Contenido de la Tarjeta -->
-                    <div>
-                        <p class="uppercase bg-[#181D31] text-center text-white">area de salud</p>
-                    </div>
-                </div>
-                <!-- ./Tarjeta -->
-
-                <!-- Tarjeta -->
-                <div class="bg-[#F0E9D2]">
-                    <!-- Contenido de la Tarjeta -->
-                    <div class="flex justify-between items-center">
-                        <div class="p-2 bg-[#E6DDC4] h-[150px] flex items-center">
-                            <img class= 'h-38 w-40 ' src="/static/torre-de-vigilancia.png" alt="torre">
-                        </div>
-                        
-                        <div class="flex w-[100%] items-center justify-between">
-                            <div class="text-center mx-auto">
-                                <h2 class="font-['SF_Mono']">Of. Jorge Gonzalez</h2>
-                            </div>
-                            
-                            <div class="w-[30%] border-l-4 border-black">
-                                <p class="text-center">17:00 hs</p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- ./Contenido de la Tarjeta -->
-                    <div>
-                        <p class="uppercase bg-[#181D31] text-center text-white">Torre de Vigilancia</p>
-                    </div>
-                </div>
-                <!-- ./Tarjeta -->
-            </div>
+              
+            </div> -->
+            <div id="container"></div>
             <!-- ./Contenedor de las tarjetas -->
         </section>
     </main>
+    <script src="/static/script.js"></script>
 </body>
 </html>
