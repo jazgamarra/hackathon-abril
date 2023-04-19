@@ -39,7 +39,7 @@
 
     <form class="mx-auto w-1/3 bg-[#F0E9D2] shadow-md rounded px-8 pt-6 pb-8 mb-4" method="post">
 
-        <div class="flex flex-col justify-around h-[20rem]">
+        <div class="flex flex-col justify-around h-[28rem]">
             <label for="hora_inicio" class="block text-sm font-bold leading-6 text-gray-900 pb-[1rem]" >Ingrese la hora de inicio</label>
             <input class=" mb-2 block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" name="hora_inicio" id="hora_inicio" type="time">
             
@@ -61,6 +61,19 @@
                 {% endfor %}
                 
             </select>
+
+            <label for="id_guardia" class="block text-sm font-bold leading-6 text-gray-900 pb-[1rem]"> Guardia asignado </label>
+            <select class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" name="id_guardia" id="id_guardia">
+                
+                {% for e in lista_guardias %}
+
+                <option value="{{e.id_guardia}}">{{e.nombre_guardia}} </option>
+
+                {% endfor %}
+                
+            </select>
+
+            
             
         </div>
 
