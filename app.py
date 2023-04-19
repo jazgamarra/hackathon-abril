@@ -151,7 +151,7 @@ def api_turnos():
 
 @app.route("/ver_turnos")
 def ver_turnos():
-    return render_template('test_visualizacion.html')
+    return render_template('test_visualizacion.html')  
 
 
 @app.route('/borrar/<int:id>')
