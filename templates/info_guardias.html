@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Consulta para guardias</title>
+
+    <!-- Encabezado -->
+    <header class="bg-[#678983]">
+      <nav
+        class="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8"
+        aria-label="Global"
+      >
+        <div>
+          <a href="intermedio">
+            <img
+              class="h-12 inline-block mr-2 scale-[100%]"
+              src="../static/img/Logo.png"
+              alt="Logo"
+            />
+          </a>
+        </div>
+
+        <div class="hidden lg:flex lg:gap-x-12">
+          <a
+            href="{{url_for('agregar_datos_espacioasignado')}}"
+            class="text-sm font-semibold leading-6 text-white hover:text-cyan-900"
+            >Espacios asignados</a
+          >
+
+          <a
+            href="{{url_for('agregar_datos_pabellon')}}"
+            class="text-sm font-semibold leading-6 text-white hover:text-cyan-900"
+          >
+            Pabellón</a
+          >
+
+          <a
+            href="{{url_for('agregar_datos_espacios')}}"
+            class="text-sm font-semibold leading-6 text-white hover:text-cyan-900"
+            >Espacios</a
+          >
+
+          <a
+            href="{{url_for('agregar_datos_ppl')}}"
+            class="text-sm font-semibold leading-6 text-white hover:text-cyan-900"
+          >
+            PPL</a
+          >
+
+          <a
+            href="{{url_for('agregar_datos_guardias')}}"
+            class="text-sm font-semibold leading-6 text-white hover:text-cyan-900"
+          >
+            Guardia</a
+          >
+        </div>
+      </nav>
+    </header>
+  </head>
+
+  <body class="bg-gray-100">
+    <!--color del fondo-->
+
+    <div class="flex">
+      <div class="w-1/5 h-full bg-gray-100">
+        <img
+          class="p-10 w-full"
+          src="/static/img/guardiaicono3.png"
+          alt="Foto del guardia"
+        />
+
+        <div>
+          <h1 class="border border-[#181D31] m-4 text-center">
+            ID del Guardia
+          </h1>
+          <h1 class="m-4 text-center">"ID del guardia"</h1>
+          <h1 class="border border-[#181D31] m-4 text-center">Pabellón</h1>
+          <h1 class="m-4 text-center">"Pabellón"</h1>
+        </div>
+      </div>
+
+      <!--Nombre y cargo del guardia-->
+      <div class="w-full">
+        <div class="bg-gray-100 text-center pb-4">
+          <h1 class="my-8 text-black text-5xl border-solid">
+            Nombre del guardia
+          </h1>
+        </div>
+
+        <!--Buscador-->
+        <form id="buscador">
+          <div
+            class="flex items-center border-b border-b-2 border-[#678983] py-2"
+          >
+            <input
+              class="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none"
+              type="text"
+              placeholder="Buscar por nombre o número de preso"
+            />
+            <button
+              class="mx-4 flex-shrink-0 bg-[#678983] hover:bg-[#181D31] border-[#678983] hover:border-[#181D31] text-sm border-4 text-white py-1 px-2 rounded"
+              type="submit"
+            >
+              Buscar
+            </button>
+          </div>
+        </form>
+
+        <!--Información de presos-->
+        <div
+          id="resultados"
+          class="grid grid-cols-1 gap-4 p-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
+        >
+          {% for preso in presos %}
+          <div
+            class="flex flex-col items-center justify-between w-full p-4 bg-[#F0E9D2] rounded-lg shadow-md"
+          >
+            <h2 class="text-xl font-bold text-gray-800">
+              {{ preso['nombre'] }}
+            </h2>
+            <div class="flex justify-between w-full mt-4">
+              <p class="text-gray-700">Número:</p>
+              <p class="font-bold text-gray-900">{{ preso['numero'] }}</p>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+    <script>
+      const form = document.getElementById("buscador");
+      const resultados = document.getElementById("resultados");
+      // const presos = {{ presos|tojson }};
+
+      form.addEventListener("submit", (event) => {
+        event.preventDefault(); // Evita que se envíe el formulario
+
+        const termino = event.target.querySelector("input").value.toLowerCase(); // Obtiene el término de búsqueda
+        const resultadosFiltrados = presos.filter((preso) => {
+          return (
+            preso.nombre.toLowerCase().includes(termino) ||
+            preso.numero.toLowerCase().includes(termino)
+          );
+        }); // Filtra los resultados que coinciden con el término de búsqueda
+
+        // Actualiza la lista de resultados en el HTML
+        resultados.innerHTML = "";
+        resultadosFiltrados.forEach((preso) => {
+          resultados.innerHTML += `
+                <div class="flex flex-col items-center justify-between w-full p-4 bg-[#F0E9D2] rounded-lg shadow-md">
+                    <h2 class="text-xl font-bold text-gray-800">${preso.nombre}</h2>
+                    <div class="flex justify-between w-full mt-4">
+                        <p class="text-gray-700">Número:</p>
+                        <p class="font-bold text-gray-900">${preso.numero}</p>
+                    </div>
+                </div>
+            `;
+        });
+      });
+    </script>
+  </body>
+</html>

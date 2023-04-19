@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Document</title>
+  </head>
+  <body class="bg-[url('../static/img/background.jpeg')] bg-no-repeat bg-cover">
+    <!-- component -->
+    <div class="flex flex-col mx-auto -mt-20 overflow-hidden">
+      <div
+        class="relative z-20 flex w-full min-h-screen px-5 pt-20 mx-auto sm:px-12 sm:h-screen max-w-7xl sm:pt-0 lg:px-0"
+      >
+        <div class="w-full md:w-2/3">
+          <div
+            class="flex flex-col items-start justify-center w-full h-full pb-20"
+          >
+            <div class="relative w-full h-[35rem] flex flex-col justify-center">
+              <!-- Zona del logo -->
+              <div class="flex items-center justify-start w-44 h-44 ml-[1rem]">
+                <img src="../static/img/Logo.png" alt="Logo" />
+              </div>
+              <!-- Cartel de bienvenido -->
+              <h1
+                class="relative z-0 w-full max-w-md py-2 text-4xl font-black text-left text-white sm:py-5 sm:text-6xl mb-[1rem]"
+                data-unsp-sanitized="clean"
+              >
+                Bienvenido
+              </h1>
+
+              <!-- Zona de botones -->
+              <div
+                class="relative flex flex-col items-center justify-start w-full space-y-5 sm:w-auto lg:space-y-0 lg:space-x-5 lg:flex-row"
+              >
+                <!-- Boton chico -->
+                <a
+                  href="consulta_para_guardias"
+                  class="flex items-center justify-center w-full px-8 py-3 text-base font-medium leading-6 text-white text-blue-600 transition duration-150 ease-in-out border border-transparent rounded-lg sm:w-auto sm:rounded-full bg-[#181D31] xl:px-10 hover:bg-[#323a59] focus:outline-none focus:border-blue-700 focus:shadow-outline-blue md:py-4 xl:text-xl"
+                  data-unsp-sanitized="clean"
+                >
+                  InformaciÃ³n Guardias
+                </a>
+
+                <!-- Boton Grande -->
+                <a
+                  href="#"
+                  class="flex items-center justify-center w-full px-8 py-3 text-base font-medium leading-6 text-white text-blue-600 transition duration-150 ease-in-out border border-transparent rounded-lg sm:w-auto sm:rounded-full bg-[#181D31] xl:px-10 hover:bg-[#323a59] focus:outline-none focus:border-blue-700 focus:shadow-outline-blue md:py-4 xl:text-xl"
+                  data-unsp-sanitized="clean"
+                >
+                  Ir a Registros
+                </a>
+              </div>
+            </div>
+
+            <!-- Texto de bienvenida -->
+            <div
+              class="flex flex-col items-start my-4 text-left lg:pl-10"
+            ></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Control de gradiante -->
+      <div
+        class="absolute top-0 left-0 z-0 flex items-start justify-center w-full h-screen overflow-hidden opacity-75"
+      >
+        <div class="relative z-20 w-1/2">
+          <!-- Aqui se controla la gradiante del cuadro de bienvenida -->
+          <div
+            class="absolute top-0 left-0 w-full h-screen bg-gradient-to-r from-[#678983] to-[#678983]"
+          ></div>
+        </div>
+
+        <div class="relative z-10 w-1/2">
+          <!-- Aqui se controla la gradiante de la segunda grilla -->
+          <div
+            class="absolute top-0 left-0 z-50 w-full h-screen bg-gradient-to-r from-[#678983] t to-transparent"
+          ></div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
