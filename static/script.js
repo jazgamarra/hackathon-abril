@@ -1,3 +1,16 @@
+let asignarImgSrc = (espacio) => {
+  switch (espacio) {
+    case "Deporte":
+      return "/static/img/deporte.webp";
+    case "Cocina":
+      return "/static/img/comedor.webp";
+    case "Transporte":
+      return "/static/img/transporte.webp";
+    default:
+      return "/static/img/celdas.webp";
+  }
+};
+
 $.ajax({
   url: "/api_turnos",
   type: "GET",
@@ -29,9 +42,9 @@ $.ajax({
       );
 
       const image = document.createElement("img");
-      image.classList.add("h-40", "w-40");
-      image.src = "/static/patio-de-recreo.png";
-      image.alt = "patio";
+      image.classList.add("h-32", "w-32", "p-2");
+      image.src = asignarImgSrc(elemento["espacio"]);
+      image.alt = elemento["espacio"];
 
       // Agregar imagen a la sección de imagen
       imageSection.appendChild(image);

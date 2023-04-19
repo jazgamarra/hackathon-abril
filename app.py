@@ -1,5 +1,5 @@
 
-from time import time
+import time
 from flask import Flask, render_template, request, jsonify
 from flask_sqlalchemy import SQLAlchemy
 
@@ -46,6 +46,7 @@ with app.app_context():
     db.create_all()
 
 def convertir_a_epoch (fecha_str, hora_str):
+    print(hora_str, fecha_str)
     '''Convertir fecha y hora a objetos datetime''' 
     fecha_hora_str = fecha_str + ' ' + hora_str
     fecha_hora = datetime.datetime.strptime(fecha_hora_str, '%Y-%m-%d %H:%M')
@@ -103,7 +104,7 @@ def agregar_datos_espacioasignado():
         hora_fin_raw = diccionario ["hora_fin"]
         fecha_raw = diccionario ["fecha"]
         id_guardia = diccionario ["id_guardia"]
-   
+        print(fecha_raw, hora_fin_raw, 'aaaaaaaaa')
         hora_inicio = convertir_a_epoch (fecha_raw, hora_inicio_raw)
         hora_fin = convertir_a_epoch (fecha_raw, hora_fin_raw)
 
